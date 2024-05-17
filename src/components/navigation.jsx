@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 export const Navigation = (props) => {
   return (
@@ -18,7 +19,7 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
           </button>
           <a className="navbar-brand page-scroll" href="/#page-top">
-            Hoa Hạc Quán
+            <img src="../img/1-04.jpg" alt="logo" style={{maxHeight: "60px", width:'auto',  transform: 'translate(200px, -20px)', borderRadius:'10px'}} />
           </a>{" "}
         </div>
 
@@ -48,9 +49,7 @@ export const Navigation = (props) => {
               </a>
             </li>
             <li>
-              <a href="/cart">
-                Cart
-              </a>
+            <Link to="/cart">Cart</Link>
             </li>
           </ul>
         </div>

@@ -186,30 +186,37 @@
     "address": "37 Fairmount st apt 1 Dorchester MA 02124-4601",
     "phone": "+1 617 599 3368",
     "email": "info@company.com",
-    "facebook": "fb.com",
-    "twitter": "twitter.com",
-    "youtube": "youtube.com"
+    "facebook": "https://www.facebook.com/phelaxinchao",
+    "instagram": "https://www.instagram.com/phela_xinchao/"
   },
   "Features": [
     {
-      "icon": "fa fa-comments-o",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "src": "img/products/filter-gift-box-of-10-packs/special/4.jpg",
+      "title": "Lorem ipsum"
     },
     {
-      "icon": "fa fa-bullhorn",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "src": "img/products/filter-gift-box-of-10-packs/special/5.jpg",
+      "title": "Lorem ipsum"
     },
     {
-      "icon": "fa fa-group",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "src": "img/products/filter-gift-box-of-10-packs/special/6.jpg",
+      "title": "Lorem ipsum"
     },
     {
-      "icon": "fa fa-magic",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "src": "img/products/filter-gift-box-of-10-packs/special/7.jpg",
+      "title": "Lorem ipsum"
+    },
+    {
+      "src": "img/products/filter-gift-box-of-10-packs/special/8.jpg",
+      "title": "Lorem ipsum"
+    },
+    {
+      "src": "img/products/filter-gift-box-of-10-packs/special/9.jpg",
+      "title": "Lorem ipsum"
+    },
+    {
+      "src": "img/products/filter-gift-box-of-10-packs/special/10.jpg",
+      "title": "Lorem ipsum"
     }
   ],
   "Cart": [
