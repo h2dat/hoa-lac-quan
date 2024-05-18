@@ -46,6 +46,7 @@
     },
     {
       "id": 3,
+      "status": "comming_soon",
       "name": "Hộp quà phin giấy 16 gói - Bản thường",
       "price": 45,
       "Image": [
@@ -178,8 +179,8 @@
   ],
   "Contact": {
     "address": "37 Fairmount st apt 1 Dorchester MA 02124-4601",
-    "phone": "+1 617 599 3368",
-    "email": "info@company.com",
+    "phone": "325 213 6801",
+    "email": "Net.helloworld99@gmail.com",
     "facebook": "https://www.facebook.com/phelaxinchao",
     "instagram": "https://www.instagram.com/phela_xinchao/"
   },

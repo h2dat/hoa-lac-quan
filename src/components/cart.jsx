@@ -126,7 +126,7 @@ const Cart = () => {
       address: address,
       phoneNumber: phoneNumber,
       reply_to: email,
-      bcc_to: "net.helloworld99@gmail.com",
+      bcc_to: "Net.helloworld99@gmail.com",
     })
       .then(
         function (response) {
