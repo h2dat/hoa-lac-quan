@@ -1,4 +1,5 @@
 import React from "react";
+import { Image } from "./image";
 export const Services = (props) => {
   return (
     <div id="services" className="text-center">
@@ -6,21 +7,20 @@ export const Services = (props) => {
         <div className="section-title">
           <h2>Our Services</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-            dapibus leonec.
+            Luôn đặt sự hài lòng của khách hàng lên hàng đầu
           </p>
         </div>
         <div className="row">
           {props.data
             ? props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className="col-md-4">
-                  <img src={d.img} style={{ borderRadius: '10px' }} />
-                  <div className="service-desc">
-                    <h3>{d.name}</h3>
-                    <p>{d.text}</p>
-                  </div>
+              <div key={`${d.name}-${i}`} className="col-md-4">
+                <Image title={d.name}
+                  largeImage={d.img} />
+                <div className="service-desc">
+                  <h3>{d.name}</h3>
                 </div>
-              ))
+              </div>
+            ))
             : "loading"}
         </div>
       </div>

@@ -30,6 +30,7 @@ export const Features = (props) => {
       <div className="container">
         <div className="col-md-10 col-md-offset-1 section-title">
           <h2>Best Seller</h2>
+          <h3>Hộp quà tết</h3>
         </div>
         <div className="row">
           {props.data ? (

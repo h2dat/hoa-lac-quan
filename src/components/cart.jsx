@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Modal from "./banner"
 import JsonData from '../data/data.json';
 import { FaArchive } from "react-icons/fa";
 import emailjs from "emailjs-com";
@@ -7,7 +8,7 @@ const Cart = () => {
 
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cartItems')) || []);
   const [total, setTotal] = useState(0);
-
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     if (cart) {
       cart.forEach(element => {
@@ -45,41 +46,52 @@ const Cart = () => {
     const product = JsonData.Products.find(product => product.id === parseInt(cartItem.id));
     const itemTotalPrice = product.price * (cartItem.quantity || 0);
     return (
-      <div className='row'>
-        <div className="col-md-6" style={{ marginBottom: 20 }}>
-          <div className="container py-4 border-bottom" >
-            <div className="row align-items-center">
-              <div className="col-md-3">
-                <img src={`../${product.Image[0]}`} alt={cartItem.title} height="200px" width="180px" className="img-fluid" />
-              </div>
-              <div className="col-md-6">
-                <h3>{cartItem.name}</h3>
-                <p className="lead fw-bold">${product.price}</p>
-                <div className="col rounded-pill">
-                  <input
-                    type="number"
-                    className="form-control"
-                    value={cartItem.quantity || 0}
-                    onChange={(e) => handleQuantityChange(e, cartItem.id)}
-                    min={1}
-                    style={{ borderRadius: 20, marginLeft: 0, maxWidth: '10rem' }}
-                  />
+      <>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
+        <Modal 
+          isOpen={isOpen} 
+          onClose={() => setIsOpen(false)} 
+          imageUrls={['../img/QR/1.jpg', '../img/QR/2.jpg']} 
+        />
+       
+      </div>
+        <div className='row'>
+
+          <div className="col-md-6" style={{ marginBottom: 20 }}>
+            <div className="container py-4 border-bottom" >
+              <div className="row align-items-center">
+                <div className="col-md-3">
+                  <img src={`../${product.Image[0]}`} alt={cartItem.title} height="200px" width="180px" className="img-fluid" />
                 </div>
-              </div>
-              <div className="col-md-3" style={{ marginTop: 20 }}>
-                <div className="row justify-content-end">
-                  <div className="col-md-4">
-                    <h5>Total: </h5>
+                <div className="col-md-6">
+                  <h3>{cartItem.name}</h3>
+                  <p className="lead fw-bold">${product.price}</p>
+                  <div className="col rounded-pill">
+                    <input
+                      type="number"
+                      className="form-control"
+                      value={cartItem.quantity || 0}
+                      onChange={(e) => handleQuantityChange(e, cartItem.id)}
+                      min={1}
+                      style={{ borderRadius: 20, marginLeft: 0, maxWidth: '10rem' }}
+                    />
                   </div>
-                  <div className="col-md-6">
-                    <h5>${itemTotalPrice}</h5>
-                  </div>
-                </div><FaArchive onClick={() => removeFromCart(cartItem.id)} size={20} style={{ marginTop: 30 }} />
+                </div>
+                <div className="col-md-3" style={{ marginTop: 20 }}>
+                  <div className="row justify-content-end">
+                    <div className="col-md-4">
+                      <h5>Total: </h5>
+                    </div>
+                    <div className="col-md-6">
+                      <h5>${itemTotalPrice}</h5>
+                    </div>
+                  </div><FaArchive onClick={() => removeFromCart(cartItem.id)} size={20} style={{ marginTop: 30 }} />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   };
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -125,6 +137,7 @@ const Cart = () => {
           console.log("FAILED...", error);
         }
       );
+    setIsOpen(true)
   }
 
   const emptyCart = () => (

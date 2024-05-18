@@ -98,34 +98,28 @@
   ],
   "Services": [
     {
-      "img": "img/products/cold-brew.jpg",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "img": "img/Customer Reviews/1.jpg",
+      "name": "Sản phẩm chất lượng"
     },
     {
-      "img": "img/products/lang-biang.jpg",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "img": "img/Customer Reviews/2.jpg",
+      "name": "Đóng gói sang trọng"
     },
     {
-      "img": "img/products/o-long-sua.jpg",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "img": "img/Customer Reviews/3.jpg",
+      "name": "Hương vị đậm đà"
     },
     {
-      "img": "img/products/phe-lan.jpg",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "img": "img/Customer Reviews/4.jpg",
+      "name": "Dịch vụ thân thiện"
     },
     {
-      "img": "img/products/phe-truffle.jpg",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "img": "img/Customer Reviews/5.jpg",
+      "name": "Trải nghiệm tuyệt vời"
     },
     {
-      "img": "img/products/san-may.jpg",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "img": "img/Customer Reviews/6.jpg",
+      "name": "Dễ dàng sử dụng"
     }
   ],
   "Testimonials": [
