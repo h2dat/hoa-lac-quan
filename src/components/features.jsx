@@ -30,13 +30,14 @@ export const Features = (props) => {
       <div className="container">
         <div className="col-md-10 col-md-offset-1 section-title">
           <h2>Best Seller</h2>
-          <h3>Hộp quà tết</h3>
+          <h3>Đón Tết Nhâm Thìn ở Boston</h3>
         </div>
         <div className="row">
           {props.data ? (
             <div className="col-md-12">
               <div className="feature-img-container">
                 <img
+                  style={{borderRadius: '5%'}}
                   className="feature-img slide"
                   src={props.data[currentImageIndex].src}
                   alt={props.data[currentImageIndex].title}

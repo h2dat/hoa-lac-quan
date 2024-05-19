@@ -37,10 +37,10 @@
       "name": "Hộp quà tiện lợi",
       "price": 30,
       "Image": [
-        "img/products/convenient-gift-box-of-6-cups/2.jpg",
+        "img/products/convenient-gift-box-of-6-cups/4.jpg",
         "img/products/convenient-gift-box-of-6-cups/1.jpg",
         "img/products/convenient-gift-box-of-6-cups/3.jpg",
-        "img/products/convenient-gift-box-of-6-cups/4.jpg"
+        "img/products/convenient-gift-box-of-6-cups/2.jpg"
       ],
       "description": "Mang Phê La về nhà! Hộp 06 ly, với 04 loại:\n- Ô Long Sữa Phê La x2\n- Ô Long Nhài Sữa x2\n- Ô Long Đào Sữa x1\n- Tấm x1.\nPhiên bản ly tiện lợi, đồng hành cùng bạn trên mọi chuyến chill. Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp."
     },
@@ -195,14 +195,6 @@
     },
     {
       "src": "img/products/filter-gift-box-of-10-packs/special/6.jpg",
-      "title": "Lorem ipsum"
-    },
-    {
-      "src": "img/products/filter-gift-box-of-10-packs/special/7.jpg",
-      "title": "Lorem ipsum"
-    },
-    {
-      "src": "img/products/filter-gift-box-of-10-packs/special/8.jpg",
       "title": "Lorem ipsum"
     },
     {
