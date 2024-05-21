@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import JsonData from '../data/data.json';
+import AlertDialog from "./AlertBox"
 
 const ProductDetailPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [index, setIndex] = useState(0);
-  const id =  localStorage.getItem('productId') ;
+  const id = localStorage.getItem('productId');
+  const [openAlert, setOpenAlert] = useState(false)
+  const titleAlert = "Đặt hàng thành công"
+  const messageAlert = "Sản phẩm đã được thêm vào giỏ hàng. Cảm ơn bạn đã đặt hàng!"
   const handleQuantityChange = (event) => {
     setQuantity(parseInt(event.target.value));
   };
@@ -16,6 +20,9 @@ const ProductDetailPage = () => {
     if (quantity > 1) {
       setQuantity(prevQuantity => prevQuantity - 1);
     }
+  };
+  const handleClose = () => {
+    setOpenAlert(false);
   };
   const handleAddToCart = () => {
     const product = JsonData.Products.find(product => product.id === parseInt(id));
@@ -35,17 +42,14 @@ const ProductDetailPage = () => {
     }
 
     localStorage.setItem('cartItems', JSON.stringify(existingCartItems));
-
-    alert('Product added to cart successfully!');
+    setOpenAlert(true)
   };
   const product = JsonData.Products.find(product => product.id === parseInt(id));
 
   return (
     <div className="container py-5">
-      {/* <div>
-        <Modal isOpen={isOpen} onClose={closeModal} imageUrl={imageSrc}>
-        </Modal>
-      </div> */}
+      <AlertDialog open={openAlert} onClose={handleClose} title={titleAlert} message={messageAlert}/>
+
       <div>
         <div className="row" style={{ marginTop: '5rem' }}>
           <div className="col-lg-6 product">
@@ -68,8 +72,8 @@ const ProductDetailPage = () => {
             <h3 style={{ fontFamily: 'Arial', color: 'gray' }}>${product.price}</h3>
             <div className="row align-items-center mb-5" style={{ marginTop: '5rem' }}>
               <div className="col-md-6 rounded-pill">
-                <button className="btn btn-outline-secondary" onClick={handleIncrement} style={{ marginRight: "1rem", padding: "10px" }} >+</button>
-                <button className="btn btn-outline-secondary" onClick={handleDecrement} style={{ marginRight: "1rem", padding: "10px" }}>-</button>
+                <button className="btn btn-outline-secondary" onClick={handleIncrement} style={{ marginRight: "1rem", padding: "10px", fontSize: '20px' }}>+</button>
+                <button className="btn btn-outline-secondary" onClick={handleDecrement} style={{ marginRight: "1rem", padding: "10px", fontSize: '20px' }}>-</button>
               </div>
               <div className="col-md-5 rounded-pill" style={{ marginLeft: '-20rem' }}>
                 <input

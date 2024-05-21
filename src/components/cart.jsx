@@ -3,9 +3,14 @@ import Modal from "./banner"
 import JsonData from '../data/data.json';
 import { FaArchive } from "react-icons/fa";
 import emailjs from "emailjs-com";
+import { Dialog, DialogContent, DialogTitle, TextField } from '@material-ui/core'
+import AlertDialog from "./AlertBox"
 
 const Cart = () => {
-
+  const [isOpenForm, setIsOpenForm] = useState(false)
+  const [isOpenAlert, setIsOpenAlert] = useState(false)
+  const titleAlert = "Đặt hàng thành công"
+  const messageAlert = "Sản phẩm đã được ghi nhận. Quét QR để thực hiện thanh toán!"
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cartItems')) || []);
   const [total, setTotal] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -41,20 +46,28 @@ const Cart = () => {
     setCart(updatedCart);
     localStorage.setItem('cartItems', JSON.stringify(updatedCart));
   };
-
+  const handleCloseForm = () => {
+    setIsOpenForm(false)
+  }
+  const handleCloseAlert = () => {
+    setIsOpenAlert(false)
+  }
   const cartItems = (cartItem) => {
     const product = JsonData.Products.find(product => product.id === parseInt(cartItem.id));
     const itemTotalPrice = product.price * (cartItem.quantity || 0);
     return (
       <>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
-        <Modal 
-          isOpen={isOpen} 
-          onClose={() => setIsOpen(false)} 
-          imageUrls={['../img/QR/1.jpg', '../img/QR/2.jpg']} 
-        />
-       
-      </div>
+          <AlertDialog open={isOpenAlert} onClose={handleCloseAlert} title={titleAlert} message={messageAlert} />
+
+          <Modal
+            isOpen={isOpen}
+            onClose={() => setIsOpen(false)}
+            imageUrls={['../img/QR/1.jpg', '../img/QR/2.jpg']}
+          />
+
+        </div>
+
         <div className='row'>
 
           <div className="col-md-6" style={{ marginBottom: 20 }}>
@@ -91,6 +104,7 @@ const Cart = () => {
             </div>
           </div>
         </div>
+
       </>
     );
   };
@@ -131,13 +145,14 @@ const Cart = () => {
       .then(
         function (response) {
           console.log("SUCCESS!", response.status, response.text);
-          alert("Order success, check your mail to complate purcharge")
+          setIsOpenAlert(true)
         },
         function (error) {
           console.log("FAILED...", error);
         }
       );
     setIsOpen(true)
+    setIsOpenForm(false)
   }
 
   const emptyCart = () => (
@@ -167,44 +182,62 @@ const Cart = () => {
         </div>
 
       </div>
-      {cart.length !== 0 && <form onSubmit={handleSubmit} style={{ marginTop: '2rem' }}>
-        <input
-          type="text"
-          placeholder="Enter Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="form-control"
-          style={{ marginBottom: '1rem' }}
-        />
-        <input
-          type="email"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="form-control"
-          style={{ marginBottom: '1rem' }}
-        />
-        <input
-          type="number"
-          placeholder="Enter Phone Number"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          className="form-control"
-          style={{ marginBottom: '1rem' }}
-        />
-        <input
-          type="text"
-          placeholder="Enter Address"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          className="form-control"
-          style={{ marginBottom: '1rem' }}
-        />
-      </form>}
+      <Dialog open={isOpenForm} maxWidth={false}
+        style={{ width: '70%', margin: 'auto' }} onClose={handleCloseForm}>
+        <DialogTitle className="dialog-title">Phiếu điền thông tin nhận hàng</DialogTitle>
+        <DialogContent dividers>
+          {cart.length !== 0 && (
+            <form onSubmit={handleSubmit} style={{ marginTop: '2rem' }}>
+              <TextField
+                fullWidth
+                variant="outlined"
+                margin="normal"
+                label="Enter Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                style={{ marginBottom: '1rem' }}
+              />
+              <TextField
+                fullWidth
+                variant="outlined"
+                margin="normal"
+                label="Enter Email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{ marginBottom: '1rem' }}
+              />
+              <TextField
+                fullWidth
+                variant="outlined"
+                margin="normal"
+                label="Enter Phone Number"
+                type="number"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                style={{ marginBottom: '1rem' }}
+              />
+              <TextField
+                fullWidth
+                variant="outlined"
+                margin="normal"
+                label="Enter Address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                style={{ marginBottom: '1rem' }}
+              />
+              <div className="col-md-12 text-center" style={{ marginTop: '2rem' }}>
+                <div className="col-md-12 text-center">
+                  <button className="btn btn-custom btn-lg" onClick={handleSubmit}>Checkout</button>
+                </div >
+              </div>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
       <div className="col-md-12 text-center">
-        <button className="btn btn-custom btn-lg" onClick={handleSubmit}>Checkout</button>
-      </div>
-
+        <button className="btn btn-custom btn-lg" onClick={() => setIsOpenForm(true)}>Checkout</button>
+      </div >
     </>)
   };
 
