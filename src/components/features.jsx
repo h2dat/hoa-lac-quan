@@ -37,8 +37,7 @@ export const Features = (props) => {
             <div className="col-md-12">
               <div className="feature-img-container">
                 <img
-                  style={{borderRadius: '5%'}}
-                  className="feature-img slide"
+                  className="feature-img"
                   src={props.data[currentImageIndex].src}
                   alt={props.data[currentImageIndex].title}
                 />
