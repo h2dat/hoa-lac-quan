@@ -13,17 +13,6 @@ export const Features = (props) => {
     return () => clearInterval(interval);
   }, [props.data]);
 
-  const goToPreviousImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? props.data.length - 1 : prevIndex - 1
-    );
-  };
-
-  const goToNextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === props.data.length - 1 ? 0 : prevIndex + 1
-    );
-  };
 
   return (
     <div id="features" className="text-center">
@@ -35,19 +24,30 @@ export const Features = (props) => {
         <div className="row">
           {props.data ? (
             <div className="col-md-12">
-              <div className="feature-img-container">
-                <img
-                  className="feature-img"
-                  src={props.data[currentImageIndex].src}
-                  alt={props.data[currentImageIndex].title}
-                />
-                <div className="button-container">
-                  <button onClick={goToPreviousImage}>
-                    <i className="fa fa-arrow-left"></i>
-                  </button>
-                  <button onClick={goToNextImage}>
-                    <i className="fa fa-arrow-right"></i>
-                  </button>
+              <div className="slider-container">
+                <div className="slider">
+                  {props.data.map((image, index) => (
+                    <div
+                      key={index}
+                      className={`slide ${index === currentImageIndex ? "active" : ""}`}
+                      style={{ backgroundImage: `url(${image.src})` }}
+                    >
+                      <img
+                        className="feature-img"
+                        src={image.src}
+                        alt={image.title}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="menu">
+                  {props.data.map((_, index) => (
+                    <label
+                      key={index}
+                      className={index === currentImageIndex ? "active" : ""}
+                      onClick={() => setCurrentImageIndex(index)}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
