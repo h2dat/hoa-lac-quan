@@ -8,7 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 1000;
+  overflow: auto;
 }
 
 .modal-content {
@@ -31,4 +32,9 @@
   font-size: 1.2rem;
   cursor: pointer;
 }
-  
+
+@media (max-width: 500px)  {
+  .modal-content{
+    margin-top: 90%;
+  }
+}

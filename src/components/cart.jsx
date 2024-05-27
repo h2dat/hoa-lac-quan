@@ -58,9 +58,8 @@ const Cart = () => {
     const itemTotalPrice = product.price * (cartItem.quantity || 0);
     return (
       <>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem',zIndex:1000 }}>
           <AlertDialog open={isOpenAlert} onClose={handleCloseAlert} title={titleAlert} message={messageAlert} />
-
           <Modal
             isOpen={isOpen}
             onClose={() => setIsOpen(false)}
