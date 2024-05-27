@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { Navigation } from "./components/navigation";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
@@ -11,11 +11,21 @@ export const scroll = new SmoothScroll('a[href*="/#"]', {
   speed: 1000,
   speedAsDuration: true,
 });
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 const App = () => {
   return (
     <Router>
       <div>
+        <ScrollToTop />
         <Navigation />
         <Routes>
           <Route path='/' element={<Home />} />

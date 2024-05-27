@@ -16,6 +16,7 @@ const Cart = () => {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     if (cart) {
+      setTotal(0)
       cart.forEach(element => {
         const product = JsonData.Products.find(product => product.id === parseInt(element.id));
         const itemTotalPrice = product.price * (element.quantity || 0);

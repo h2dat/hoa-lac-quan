@@ -750,14 +750,16 @@ label {
     top: 0;
     right: -250px;
     width: 200px;
-    height: 100%;
+    height: auto;
     background: #fff;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
     transition: right 0.3s;
-    padding-top: 60px;
+    margin-top: 60px; 
   }
-
+  #menu{
+    padding: 5%;
+  }
   #menu .navbar-collapse.collapsed {
     right: -250px;
   }
@@ -780,7 +782,7 @@ label {
     margin: 0;
   }
   #menu .navbar-brand img {
-    transform: translate(0, -30px);
+    transform: translate(0, -20px);
   }
   .product-detail-buttons {
     display: flex;

@@ -40,7 +40,7 @@ const ProductDetailPage = () => {
     const existingCartItem = existingCartItems.find(item => item.id === product.id);
 
     if (existingCartItem) {
-      existingCartItem.quantity += quantity;
+      existingCartItem.quantity = parseInt(existingCartItem.quantity) + parseInt(quantity);
     } else {
       existingCartItems.push(cartItem);
     }
