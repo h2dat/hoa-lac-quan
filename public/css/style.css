@@ -799,8 +799,30 @@ label {
     max-width: 70px;
     text-align: center;
   }
+  .intro {
+    background: none;
+  }
+  .swiper-container {
+    width: auto;
+    height: auto;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 }
-
+@media (min-width: 500px){
+  .swiper-container {
+    display: none;
+  }
+}
 .fade-enter {
   opacity: 0;
 }
