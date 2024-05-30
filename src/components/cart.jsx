@@ -3,7 +3,14 @@ import Modal from "./banner"
 import JsonData from '../data/data.json';
 import { FaArchive } from "react-icons/fa";
 import emailjs from "emailjs-com";
-import { Dialog, DialogContent, DialogTitle, TextField } from '@material-ui/core'
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  TextField,
+  Grid,
+  Box
+} from '@material-ui/core'
 import AlertDialog from "./AlertBox"
 
 const Cart = () => {
@@ -58,7 +65,7 @@ const Cart = () => {
     const itemTotalPrice = product.price * (cartItem.quantity || 0);
     return (
       <>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem',zIndex:1000 }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem', zIndex: 1000 }}>
           <AlertDialog open={isOpenAlert} onClose={handleCloseAlert} title={titleAlert} message={messageAlert} />
           <Modal
             isOpen={isOpen}
@@ -140,7 +147,7 @@ const Cart = () => {
       address: address,
       phoneNumber: phoneNumber,
       reply_to: email,
-      bcc_to: "Net.helloworld99@gmail.com",
+      bcc_to: "trahoahac.boston@gmail.com",
     })
       .then(
         function (response) {
@@ -182,56 +189,71 @@ const Cart = () => {
         </div>
 
       </div>
-      <Dialog open={isOpenForm} maxWidth={false}
-        style={{ width: '70%', margin: 'auto' }} onClose={handleCloseForm}>
-        <DialogTitle className="dialog-title">Phiếu điền thông tin nhận hàng</DialogTitle>
+      <Dialog open={isOpenForm} maxWidth="md" fullWidth onClose={handleCloseForm}>
+        <DialogTitle sx={{ textAlign: 'center' }}>Phiếu điền thông tin nhận hàng</DialogTitle>
         <DialogContent dividers>
           {cart.length !== 0 && (
-            <form onSubmit={handleSubmit} style={{ marginTop: '2rem' }}>
-              <TextField
-                fullWidth
-                variant="outlined"
-                margin="normal"
-                label="Enter Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                style={{ marginBottom: '1rem' }}
-              />
-              <TextField
-                fullWidth
-                variant="outlined"
-                margin="normal"
-                label="Enter Email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                style={{ marginBottom: '1rem' }}
-              />
-              <TextField
-                fullWidth
-                variant="outlined"
-                margin="normal"
-                label="Enter Phone Number"
-                type="number"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                style={{ marginBottom: '1rem' }}
-              />
-              <TextField
-                fullWidth
-                variant="outlined"
-                margin="normal"
-                label="Enter Address"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                style={{ marginBottom: '1rem' }}
-              />
-              <div className="col-md-12 text-center" style={{ marginTop: '2rem' }}>
-                <div className="col-md-12 text-center">
-                  <button className="btn btn-custom btn-lg" onClick={handleSubmit}>Checkout</button>
-                </div >
-              </div>
-            </form>
+            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 4 }}>
+              <Grid container spacing={2} justifyContent="center">
+                <Grid item xs={12}>
+                  <TextField
+                    fullWidth
+                    variant="outlined"
+                    label="Tên"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    margin="normal"
+                    InputLabelProps={{ style: { fontSize: '1.2rem' } }}
+                    inputProps={{ style: { fontSize: '1.2rem' } }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    fullWidth
+                    variant="outlined"
+                    label="Email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    margin="normal"
+                    InputLabelProps={{ style: { fontSize: '1.2rem' } }}
+                    inputProps={{ style: { fontSize: '1.2rem' } }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    fullWidth
+                    variant="outlined"
+                    label="Số điện thoại"
+                    type="tel"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    margin="normal"
+                    InputLabelProps={{ style: { fontSize: '1.2rem' } }}
+                    inputProps={{ style: { fontSize: '1.2rem' } }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    fullWidth
+                    variant="outlined"
+                    label="Địa chỉ"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    margin="normal"
+                    InputLabelProps={{ style: { fontSize: '1.2rem' } }}
+                    inputProps={{ style: { fontSize: '1.2rem' } }}
+                  />
+                </Grid>
+                <Grid item xs={12} sx={{ textAlign: 'center', mt: 4 }}>
+                  <div className="col-md-12 text-center" style={{ marginTop: '2rem' }}>
+                    <div className="col-md-12 text-center">
+                      <button className="btn btn-custom btn-lg" onClick={handleSubmit}>Checkout</button>
+                    </div >
+                  </div>
+                </Grid>
+              </Grid>
+            </Box>
           )}
         </DialogContent>
       </Dialog>
