@@ -11,11 +11,11 @@ import {
   Grid,
   Box
 } from '@material-ui/core'
-import AlertDialog from "./AlertBox"
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 const Cart = () => {
   const [isOpenForm, setIsOpenForm] = useState(false)
-  const [isOpenAlert, setIsOpenAlert] = useState(false)
   const titleAlert = "Đặt hàng thành công"
   const messageAlert = "Sản phẩm đã được ghi nhận. Quét QR để thực hiện thanh toán!"
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cartItems')) || []);
@@ -57,16 +57,14 @@ const Cart = () => {
   const handleCloseForm = () => {
     setIsOpenForm(false)
   }
-  const handleCloseAlert = () => {
-    setIsOpenAlert(false)
-  }
+
   const cartItems = (cartItem) => {
     const product = JsonData.Products.find(product => product.id === parseInt(cartItem.id));
     const itemTotalPrice = product.price * (cartItem.quantity || 0);
     return (
       <>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem', zIndex: 1000 }}>
-          <AlertDialog open={isOpenAlert} onClose={handleCloseAlert} title={titleAlert} message={messageAlert} />
+          <NotificationContainer />
           <Modal
             isOpen={isOpen}
             onClose={() => setIsOpen(false)}
@@ -121,16 +119,16 @@ const Cart = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name || !email || !phoneNumber || !address) {
-      alert("Please fill in all fields.");
+      NotificationManager.error('Lỗi!', 'Vui lòng nhập đủ thông tin để đặt hàng')
       return;
     }
     if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
+      NotificationManager.error('Lỗi!', 'Vui lòng nhập đúng email')
       return;
     }
 
     if (!phoneRegex.test(phoneNumber)) {
-      alert("Please enter a valid phone number (10 digits only).");
+      NotificationManager.error('Lỗi!', 'Vui lòng nhập đúng số điện thoại')
       return;
     }
     let items = "";
@@ -151,7 +149,7 @@ const Cart = () => {
       .then(
         function (response) {
           console.log("SUCCESS!", response.status, response.text);
-          setIsOpenAlert(true)
+          NotificationManager.success(titleAlert,messageAlert);
         },
         function (error) {
           console.log("FAILED...", error);

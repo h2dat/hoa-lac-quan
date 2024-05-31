@@ -1,29 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 export const Features = (props) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === props.data.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, [props.data]);
-
-  const goToPreviousImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? props.data.length - 1 : prevIndex - 1
-    );
-  };
-
-  const goToNextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === props.data.length - 1 ? 0 : prevIndex + 1
-    );
-  };
 
   return (
     <div id="features" className="text-center">
@@ -36,19 +19,24 @@ export const Features = (props) => {
           {props.data ? (
             <div className="col-md-12">
               <div className="feature-img-container">
-                <img
-                  className="feature-img"
-                  src={props.data[currentImageIndex].src}
-                  alt={props.data[currentImageIndex].title}
-                />
-                <div className="button-container">
-                  <button onClick={goToPreviousImage}>
-                    <i className="fa fa-arrow-left"></i>
-                  </button>
-                  <button onClick={goToNextImage}>
-                    <i className="fa fa-arrow-right"></i>
-                  </button>
-                </div>
+                <Swiper
+                  modules={[Pagination, Navigation, Autoplay]}
+                  spaceBetween={50}
+                  slidesPerView={1}
+                  pagination={{ clickable: true }}
+                  navigation
+                  autoplay={{ delay: 10000, disableOnInteraction: false }}
+                >
+                  {props.data.map((item, index) => (
+                    <SwiperSlide key={index}>
+                      <img
+                        className="feature-img"
+                        src={item.src}
+                        alt={item.title}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
             </div>
           ) : (

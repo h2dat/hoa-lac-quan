@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import JsonData from '../data/data.json';
-import AlertDialog from "./AlertBox"
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 const ProductDetailPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [index, setIndex] = useState(0);
   const id = localStorage.getItem('productId');
-  const [openAlert, setOpenAlert] = useState(false)
-  const titleAlert = "Đặt hàng thành công"
-  const messageAlert = "Sản phẩm đã được thêm vào giỏ hàng. Cảm ơn bạn đã đặt hàng!"
-
   const handleQuantityChange = (event) => {
     setQuantity(parseInt(event.target.value));
   };
@@ -24,38 +21,43 @@ const ProductDetailPage = () => {
     }
   };
 
-  const handleClose = () => {
-    setOpenAlert(false);
-  };
 
   const handleAddToCart = () => {
+
     const product = JsonData.Products.find(product => product.id === parseInt(id));
-    const cartItem = {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      quantity: quantity
-    };
-    const existingCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    const existingCartItem = existingCartItems.find(item => item.id === product.id);
-
-    if (existingCartItem) {
-      existingCartItem.quantity = parseInt(existingCartItem.quantity) + parseInt(quantity);
-    } else {
-      existingCartItems.push(cartItem);
+    console.log(product)
+    if (product.status === 'comming_soon') {
+      NotificationManager.error('Hết hàng!', 'Sản phẩm hiện đang hết hàng, rất xin lỗi vì sự bất tiện này')
     }
+    else {
+      console.log('wtf')
+      const cartItem = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: quantity
+      };
+      const existingCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const existingCartItem = existingCartItems.find(item => item.id === product.id);
 
-    localStorage.setItem('cartItems', JSON.stringify(existingCartItems));
-    setOpenAlert(true)
+      if (existingCartItem) {
+        existingCartItem.quantity = parseInt(existingCartItem.quantity) + parseInt(quantity);
+      } else {
+        existingCartItems.push(cartItem);
+      }
+
+      localStorage.setItem('cartItems', JSON.stringify(existingCartItems));
+      NotificationManager.success('Đặt hàng Thành công!', 'Sản phẩm đã được thêm vào giỏ hàng');
+    }
   };
 
   const product = JsonData.Products.find(product => product.id === parseInt(id));
 
   return (
     <div className="container py-5">
-      <AlertDialog open={openAlert} onClose={handleClose} title={titleAlert} message={messageAlert} />
-
+      
       <div>
+      <NotificationContainer />
         <div className="row" style={{ marginTop: '5rem' }}>
           <div className="col-lg-6 product">
             <img src={`../${product.Image[index]}`} alt="Product" className="img-fluid" height={450} style={{ maxWidth: '100%', maxHeight: '100%' }} />

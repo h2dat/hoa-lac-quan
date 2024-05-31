@@ -3,7 +3,7 @@ import React from "react";
 export const Image = ({ title, largeImage }) => {
   return (
     <div className="products-item" style={{ textAlign: "center", margin: '0.5rem' }}>
-      <div className="hover-bg" style={{borderRadius: '10%'}}>
+      <div className="hover-bg" style={{ borderRadius: '10%', position: 'relative', overflow: 'hidden' }}>
         <a href={largeImage} title={title} data-lightbox-Products="Products1">
           <div className="hover-text">
             <h4>{title}</h4>
