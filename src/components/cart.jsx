@@ -135,11 +135,11 @@ const Cart = () => {
     }
     let items = "";
     cart.map((item) => {
-      items += `${item.name} x ${item.quantity} = ${item.price} \n`;
+      items += `${item.name} x ${item.quantity} =  $${item.price * item.quantity} \n`;
       return null;
     });
-    emailjs.init("7ln6p0Sr6aWoIbfMZ");
-    emailjs.send("service_qox8408", "template_exs0xbk", {
+    emailjs.init("1evYxEqWV4A97EcKS");
+    emailjs.send("service_y3040op", "template_560g5i9", {
       publicKey: '',
       name: name,
       items: items,
@@ -147,7 +147,6 @@ const Cart = () => {
       address: address,
       phoneNumber: phoneNumber,
       reply_to: email,
-      bcc_to: "trahoahac.boston@gmail.com",
     })
       .then(
         function (response) {
