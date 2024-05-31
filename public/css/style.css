@@ -175,7 +175,7 @@ hr {
   text-transform: uppercase;
   color: #fff;
   background-color: #5ca9fb;
-  background-image: linear-gradient(to right, #f3ece6, #d79ba0 100% 0%);
+  background-image: linear-gradient(to right, #e2bcbd, #d79ba0 100% 0%);
   padding: 14px 34px;
   letter-spacing: 1px;
   margin: 0;
@@ -305,7 +305,7 @@ header .intro-text {
 /* Services Section */
 #services {
   padding: 100px 0;
-  background: linear-gradient(to right, #f3ece6, #d79ba0 100% 0%);
+  background: linear-gradient(to right, #e2bcbd, #d79ba0 100% 0%);
   color: #fff;
 }
 #services .service-desc {
@@ -486,7 +486,7 @@ header .intro-text {
 /* Contact Section */
 #contact {
   padding: 100px 0 60px;
-  background: linear-gradient(to right, #f3ece6, #d79ba0 100% 0%);
+  background: linear-gradient(to right, #e2bcbd, #d79ba0 100% 0%);
   color: rgba(255, 255, 255, 0.75);
 }
 #contact .section-title {
