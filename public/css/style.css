@@ -346,9 +346,6 @@ header .intro-text {
   margin-bottom: 40px;
 }
 /* products Section */
-#products {
-  padding: 100px 0;
-}
 
 .products-item {
   margin: 1px -15px 0 -14px;
@@ -748,7 +745,9 @@ label {
     width: auto;
     height: auto;
   }
-  
+  .swiper-container-feature {
+    height: 350;
+  }
   .swiper-slide {
     display: flex;
     justify-content: center;

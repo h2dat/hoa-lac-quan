@@ -15,14 +15,18 @@ export const Contact = (props) => {
     setState((prevState) => ({ ...prevState, [name]: value }));
   };
   const clearState = () => setState({ ...initialState });
-  
-  
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(name, email, message);
-    
+    emailjs.init("1evYxEqWV4A97EcKS");
     emailjs
-      .sendForm("service_qox8408", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
+      .send("service_y3040op", "template_dr2cuqh", {
+        name: name,
+        message: message,
+        email: email,
+      })
       .then(
         (result) => {
           console.log(result.text);

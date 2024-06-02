@@ -10,7 +10,7 @@ export const Features = (props) => {
 
   return (
     <div id="features" className="text-center">
-      <div className="container">
+      <div className="container ">
         <div className="col-md-10 col-md-offset-1 section-title">
           <h2>Best Seller</h2>
           <h3>Đón Tết Nhâm Thìn ở Boston</h3>
@@ -26,6 +26,7 @@ export const Features = (props) => {
                   pagination={{ clickable: true }}
                   navigation
                   autoplay={{ delay: 10000, disableOnInteraction: false }}
+                  className="swiper-container-feature"
                 >
                   {props.data.map((item, index) => (
                     <SwiperSlide key={index}>
