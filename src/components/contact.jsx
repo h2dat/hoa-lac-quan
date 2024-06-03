@@ -1,6 +1,8 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import React from "react";
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 const initialState = {
   name: "",
@@ -26,19 +28,23 @@ export const Contact = (props) => {
         name: name,
         message: message,
         email: email,
+        bcc_to: email
       })
       .then(
         (result) => {
           console.log(result.text);
           clearState();
+          NotificationManager.success('FeedBack gửi đi thành công!', 'Chúng tôi sẽ cố gắng cải thiện dịch vụ dựa vào phản hồi của bạn')
         },
         (error) => {
           console.log(error.text);
+          NotificationManager.error('Lỗi!', 'Vui lòng thử lại sau')
         }
       );
   };
   return (
     <div>
+      <NotificationContainer />
       <div id="contact">
         <div className="container">
           <div className="col-md-8">
