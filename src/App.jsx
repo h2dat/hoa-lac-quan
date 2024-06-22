@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { Navigation } from "./components/navigation";
 import SmoothScroll from "smooth-scroll";
@@ -22,15 +22,38 @@ const ScrollToTop = () => {
 }
 
 const App = () => {
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (item) => {
+    const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+    if (existingItem) {
+      setCartItems(cartItems.map(cartItem =>
+        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + item.quantity } : cartItem
+      ));
+    } else {
+      setCartItems([...cartItems, item]);
+    }
+  };
+
+  useEffect(() => {
+    const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    setCartItems(storedCartItems);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
+  console.log(cartItems)
+  const cartItemCount = cartItems.reduce((total, item) => total + Number(item.quantity), 0);
   return (
     <Router>
       <div>
         <ScrollToTop />
-        <Navigation />
+        <Navigation cartItemCount={cartItemCount} />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home/>} />
           <Route path='/cart' element={<CartPage />} />
-          <Route path='/detail' element={<ProductDetailPage />} />
+          <Route path='/detail' element={<ProductDetailPage  addToCart={addToCart}/>} />
         </Routes>
       </div>
     </Router>

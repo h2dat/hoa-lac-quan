@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { IconButton } from '@material-ui/core';
+import { IconButton, Badge } from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-export const Navigation = (props) => {
+
+export const Navigation = ({ cartItemCount }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
-
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
+
   const handleResize = () => {
     setIsMobile(window.innerWidth < 500);
   };
+
   useEffect(() => {
     window.addEventListener('resize', handleResize);
 
@@ -20,6 +22,7 @@ export const Navigation = (props) => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
       <div className="container">
@@ -65,16 +68,13 @@ export const Navigation = (props) => {
               </a>
             </li>
             <li>
-              {!isMobile && (<IconButton
-                component={Link}
-                to="/cart"
-                onClick={() => setIsOpen(false)}
-
-              >
-
-                <ShoppingCartIcon style={{ fontSize: 25 }} />
-
-              </IconButton>)}
+              {!isMobile && (
+                <IconButton component={Link} to="/cart" onClick={() => setIsOpen(false)}>
+                  <Badge badgeContent={cartItemCount} color="primary">
+                    <ShoppingCartIcon style={{ fontSize: 30 }} />
+                  </Badge>
+                </IconButton>
+              )}
             </li>
           </ul>
         </div>
@@ -85,11 +85,12 @@ export const Navigation = (props) => {
             className="icon-button"
             style={{ transform: 'translate(400%, -5%)', zIndex: 1000 }}
           >
-            <ShoppingCartIcon style={{ fontSize: 30 }} />
+            <Badge badgeContent={cartItemCount} color="primary">
+              <ShoppingCartIcon style={{ fontSize: 30 }} />
+            </Badge>
           </IconButton>
         )}
       </div>
-
     </nav>
   );
 };

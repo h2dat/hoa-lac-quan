@@ -5,6 +5,7 @@ import {Features} from "./features";
 import { Products } from "./products";
 import { Contact } from "./contact";
 import { Services } from "./services"
+import { Cooking } from './howtocook';
 import JsonData from "../data/data.json";
 
 export const Home = () => {
@@ -17,9 +18,11 @@ export const Home = () => {
             <Header data={landingPageData.Header} />
             <About data={landingPageData.About} />
             <Features data={landingPageData.Features}/>
+            <Cooking data={landingPageData.Cooking}/>
             <Products data={landingPageData.Products} />
             <Services data={landingPageData.Services}/>
             <Contact data={landingPageData.Contact} />
+            
         </div>
 
     )

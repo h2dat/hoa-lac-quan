@@ -4,17 +4,8 @@
     "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo nibh ante facilisis bibendum."
   },
   "About": {
-    "paragraph": "Trà Ô Long đặc sản tại Phê La còn được ươm trồng với phương pháp chăm bón hữu cơ, hoàn toàn với trứng gà, đậu nành và thu hái thủ công để có được những búp trà tươi và non nhất, tạo nên điểm khác biệt mạnh mẽ so với các thương hiệu khác. Có thể nói, dòng trà đặc sản của Phê La luôn giữ được hương vị thơm ngon nguyên bản nhất và được nhiều người biết đến như một nguồn nguyên liệu tinh hoa của Đà Lạt.",
-    "Why": [
-      "Tâm huyết, tỉ mỉ và tinh tế thể hiện qua từng sản phẩm",
-      "Nguồn cảm hứng rất đỗi bình dị trong cuộc sống",
-      "Đề cao sự phát triển bền vững của nguồn nguyên liệu"
-    ],
-    "Why2": [
-      "210.000+ sản phẩm được bán ra trên thị trường",
-      "5836 lần được nhắc đến trên Facebook và Instagram",
-      "98% khách hàng hài lòng về chất lượng sản phẩm và dịch vụ "
-    ]
+    "paragraph1": "Nốt Hương Đặc Sản - Phê La luôn trân quý, nâng niu những giá trị Nguyên Bản ở mỗi vùng đất mà chúng tôi đi qua, nơi tâm hồn được đồng điệu với thiên nhiên, với nỗi vất vả nhọc nhằn của người nông dân; cảm nhận được hết thảy những tầng hương ẩn sâu trong từng nguyên liệu. Một chặng đường dài đang chờ phía trước, Phê La đã sẵn sàng viết tiếp câu chuyện Nốt Hương Đặc Sản - Nguyên Bản - Thủ Công đầy cảm hứng",
+    "paragraph2": "Trà Ô Long đặc sản tại Phê La còn được ươm trồng với phương pháp chăm bón hữu cơ, hoàn toàn với trứng gà, đậu nành và thu hái thủ công để có được những búp trà tươi và non nhất, tạo nên điểm khác biệt mạnh mẽ so với các thương hiệu khác. Có thể nói, dòng trà đặc sản của Phê La luôn giữ được hương vị thơm ngon nguyên bản nhất và được nhiều người biết đến như một nguồn nguyên liệu tinh hoa của Đà Lạt."
   },
   "Products": [
     {
@@ -58,7 +49,7 @@
     {
       "id": 4,
       "status": "comming_soon",
-      "name": "Hộp quà phin giấy 16 gói - Bản thường",
+      "name": "Hộp quà phin giấy 16 gói - Bản tết",
       "price": 45,
       "Image": [
         "img/products/filter-gift-box-of-10-packs/normal/1.jpg",
@@ -69,6 +60,9 @@
         "img/products/filter-gift-box-of-10-packs/normal/10.jpg",
         "img/products/filter-gift-box-of-10-packs/normal/14.jpg",
         "img/products/filter-gift-box-of-10-packs/normal/15.jpg"
+      ],
+      "Video": [
+        "video/quatet.mp4"
       ],
       "description": "Mang Phê La về nhà! Hộp gồm 02 hộp con, mỗi hộp con gồm 08 phin. Thưởng thức Ô Long Sữa Phê La & Ô Long Nhài Sữa qua phương pháp Drip Bag - phin giấy (kèm bột sữa, đường có sẵn trong hộp), mang đến trải nghiệm chill thủ công. \n\nBỘ SẢN PHẨM BAO GỒM: \n- 08 x Ô Long Sữa Phê La \n- 08 x Ô Long Nhài Sữa \nCó sẵn bột sữa, đường, que khuấy & hướng dẫn sử dụng \n\nTHÔNG TIN SẢN PHẨM: \n1. Ô Long Sữa Phê La (Trà Ô Long Mùa Xuân) \n- Thành phần: Trà Ô long. \n- Quy cách đóng gói: 10 gram/túi. \n- Hướng dẫn bảo quản: Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp. \n- Hạn sử dụng: 24 tháng kể từ ngày sản xuất. \n- Xuất xứ: Việt Nam. \n\n2. Ô Long Nhài Sữa (Trà Ô Long Nhài) \n- Thành phần: Trà Ô Long Nhài. \n- Quy cách đóng gói: 8 gram/túi. \n- Hướng dẫn bảo quản: Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp. \n- Hạn sử dụng: 24 tháng kể từ ngày sản xuất. \n- Xuất xứ: Việt Nam. \n\nHƯỚNG DẪN SỬ DỤNG: \nBước 1: Xé miệng phin giấy theo đường chỉ dẫn. \nBước 2: Mở quai 2 bên thân phin giấy. Đặt cố định quai ở miệng ly. \nBước 3: Rót 180ml nước sôi (90 - 100°C) vào cốc cố định lượng. Dùng khoảng 30ml nước sôi rót đều và chờ trà ngấm trong 30 giây. \nBước 4: Chia 150ml nước sôi còn lại thành 2 lần, rót đầy vào phin giấy và khuấy đều bằng que gỗ. (giữ chặt 2 quai phin giấy). \nBước 5: Lấy phin giấy ra, cho hết bột sữa vào ly. Thêm đường theo sở thích và khuấy đều. Ngon hơn khi thưởng thức kèm đá."
     },
@@ -121,6 +115,14 @@
     {
       "img": "img/Customer Reviews/6.jpg",
       "name": "Dễ dàng sử dụng"
+    },
+    {
+      "img": "img/Customer Reviews/7.jpg",
+      "name": "Sản phẩm 'gây nghiện'"
+    },
+    {
+      "img": "img/Customer Reviews/8.jpg",
+      "name": "Luôn là sự lựa chọn"
     }
   ],
   "Testimonials": [
@@ -203,6 +205,12 @@
     },
     {
       "src": "img/products/filter-gift-box-of-10-packs/special/10.jpg",
+      "title": "Lorem ipsum"
+    }
+  ],
+  "Cooking": [
+    {
+      "src": "video/cooking1.mp4",
       "title": "Lorem ipsum"
     }
   ],
